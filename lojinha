@@ -1,0 +1,81 @@
+# Lista para armazenar os produtos
+produtos = []
+
+# Função para cadastrar produto
+def cadastrar_produto():
+    codigo = int(input("Digite o código do produto: "))
+    nome = input("Nome do produto: ")
+    preco = float(input("Preço: "))
+    quantidade = int(input("Quantidade: "))
+
+    produto = {
+        "codigo": codigo,
+        "nome": nome,
+        "preco": preco,
+        "quantidade": quantidade
+    }
+
+    produtos.append(produto)
+    print("Produto cadastrado com sucesso!\n")
+
+# Função para listar produtos
+def listar_produtos():
+    if not produtos:
+        print("Nenhum produto encontrado.\n")
+        return
+    
+    for i, p in enumerate(produtos):
+        print(f"{i} - {p['nome']} | R$ {p['preco']} | Qtd: {p['quantidade']}")
+    print()
+
+# Função para buscar produto
+def buscar_produto():
+    nome = input("Digite o nome do produto: ")
+
+    for p in produtos:
+        if p['nome'].lower() == nome.lower():
+            print(f"Encontrado: {p}")
+            return
+        
+    print("Produto não encontrado!\n")
+
+# Função remover produto
+def remover_produto():
+    listar_produtos()
+    indice = int(input("Digite o índice do produto para remover: "))
+
+    if 0 <= indice < len(produtos):
+        removido = produtos.pop(indice)
+        print(f"Produto {removido['nome']} removido!\n")
+    else:
+        print("Índice inválido.\n")
+
+# Menu principal
+def menu():
+    while True:
+        print("=== LOJINHA PYTHON ===")
+        print("1 - Cadastrar produto")
+        print("2 - Listar produtos")
+        print("3 - Buscar produto")
+        print("4 - Remover produto")
+        print("0 - Sair")
+
+        opcao = input("Escolha: ")
+
+        if opcao == "1":
+            cadastrar_produto()
+        elif opcao == "2":
+            listar_produtos()
+        elif opcao == "3":
+            buscar_produto()
+        elif opcao == "4":
+            remover_produto()
+        elif opcao == "0":
+            print("Saindo...")
+            break
+
+        else:
+            print("Opção inválida!\n")
+
+# Rodar o sistema
+menu()
