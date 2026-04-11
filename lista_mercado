@@ -1,0 +1,27 @@
+itens = []
+
+# Adiconar Itens
+def adicionar_item():
+    valor_r = float(input("Digite o valor estimado: R$"))
+    produto = input("Digite o produto a ser adiconado: ")
+    quantidade = int(input("Digite a quantidade: "))
+
+    item = {
+        "valor_r": valor_r,
+        "produto": produto,
+        "quantidade": quantidade
+        }
+    
+    itens.append(item)
+    print(f"Item {produto} cadastrado com sucesso!!")
+
+# Listar Itens
+def listar_itens():
+    if not itens:
+        print("Nenhum produto encontrado.\n")
+        return
+    
+    for i, p in enumerate(itens):
+        print(f"{i} - {p['nome']} | {p['valor_r']} | {p['quantidade']}")
+
+# Remove Item
