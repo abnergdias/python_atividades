@@ -1,6 +1,6 @@
 itens = []
 
-# Adiconar Itens
+# Adiconar itens
 def adicionar_item():
     valor_r = float(input("Digite o valor estimado: R$"))
     produto = input("Digite o produto a ser adiconado: ")
@@ -15,13 +15,49 @@ def adicionar_item():
     itens.append(item)
     print(f"Item {produto} cadastrado com sucesso!!")
 
-# Listar Itens
+# Listar itens
 def listar_itens():
     if not itens:
         print("Nenhum produto encontrado.\n")
         return
     
     for i, p in enumerate(itens):
-        print(f"{i} - {p['nome']} | {p['valor_r']} | {p['quantidade']}")
+        print(f"{i} - {p['produto']} | R${p['valor_r']} | Qtd:{p['quantidade']}")
 
 # Remove Item
+def item_remove():
+    listar_itens()
+    indice = int(input("Digite o índice do item para remover: "))
+
+    if 0 <= indice < len(itens):
+        removido = itens.pop(indice)
+        print(f"Produto {removido['produto']} removido!\n")
+    else:
+        print("Índice inválido.\n")
+
+# Menu
+def menu():
+    while True:
+        print("==== Lista de Mercado ====")
+        print("1 - Adicionar Item")
+        print("2 - Listar itens Anotados")
+        print("3 - Remover um Item")
+        print("0 - Sair")
+
+        opcao = input("Escolha: ")
+
+        if opcao == "1":
+            adicionar_item()
+        elif opcao == "2":
+            listar_itens()
+        elif opcao == "3":
+            item_remove()
+        elif opcao == "0":
+            print("Saindo...")
+            break
+
+        else:
+            print("Opção Inválida!\n")
+
+# Rodar o sistema
+menu()
