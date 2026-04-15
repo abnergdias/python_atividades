@@ -1,0 +1,77 @@
+agenda = []
+
+# Adicionar contato
+def add_contact():
+    name = input("Nome: ")
+    phone_number = input("Número: ")
+    email = input("E-mail: ")
+
+    contatos = {
+        'name': name,
+        'phone_number': phone_number,
+        'email': email
+    }
+
+    agenda.append(contatos)
+    print("Contato salvo com sucesso!")
+
+# Buscar contato pelo nome
+def search_contact():
+    name = input("Nome: ").lower()
+
+    for p in agenda:
+        if p['name'].lower().startswith(name):
+            print(f"Encontrado: Nome: {p['name']} | Número: {p['phone_number']} | E-mail: {p['email']}")
+            return
+        
+    print("Contato não encontrado!\n")
+
+# Listar contatos
+def list_contacts():
+    if not agenda:
+        print("Nenhum contato encontrado!\n")
+        return
+    
+    for i, a in enumerate(agenda):
+        print(f"{i} - Nome: {a['name']} | Número: {a['phone_number']} | E-mail: {a['email']}")
+
+# Remover contato
+def remove_contact():
+    list_contacts()
+    indice = int(input("Digite o índice do contato: "))
+
+    if 0 <= indice < len(agenda):
+        removido = agenda.pop(indice)
+        print(f"Contato de {removido['name']} excluido!\n")
+
+    else:
+        print("Índice inválido!\n")
+
+# Menu princípal
+def menu():
+    while True:
+        print("=== AGENDA DE CONTATOS ===")
+        print("1 - Adicionar Contato")
+        print("2 - Buscar contato")
+        print("3 - Listar contatos")
+        print("4 - Excluir contatos")
+        print("0 - Sair")
+
+        opcao = input("Escolha: ")
+
+        if opcao == "1":
+            add_contact()
+        elif opcao == "2":
+            search_contact()
+        elif opcao == "3":
+            list_contacts()
+        elif opcao == "4":
+            remove_contact()
+        elif opcao == "0":
+            print("Saindo...")
+            break
+
+        else:
+            print("Opção inválida!\n")
+
+menu()
