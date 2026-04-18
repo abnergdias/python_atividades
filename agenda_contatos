@@ -15,16 +15,20 @@ def add_contact():
     agenda.append(contatos)
     print("Contato salvo com sucesso!")
 
-# Buscar contato pelo nome
 def search_contact():
-    name = input("Nome: ").lower()
+    name = input("Nome: ")
+
+    resultados = []
 
     for p in agenda:
-        if p['name'].lower().startswith(name):
-            print(f"Encontrado: Nome: {p['name']} | Número: {p['phone_number']} | E-mail: {p['email']}")
-            return
-        
-    print("Contato não encontrado!\n")
+        if p['name'].lower().startswith(name.lower()):
+            resultados.append(p)
+
+    if resultados:
+        for p in resultados:
+            print(f"Nome: {p['name']} | Número: {p['phone_number']} | E-mail: {p['email']}")
+    else:
+        print("Contato não encontrado!\n")
 
 # Listar contatos
 def list_contacts():
