@@ -1,0 +1,28 @@
+def terminal_consult():
+    while True:
+        print("==========================")
+        print("    Escolha uma opção     ")
+        print("==========================")
+        print("1 - Cadastrar")
+        print("2 - Consultar")
+        print("3 - Sair")
+        opcao = int(input("Escolha uma das 3 opções!\n"))
+        match opcao:
+            case 1:
+                print("Cadastro realizado com sucesso!")
+            case 2:
+                print("Consulta realizada!")
+            case 3:
+                print("Saindo...")
+                break
+            case _:
+                print("Opção inválida")
+terminal_consult()
+print("Deseja retornar ao terminal de consultas e cadastros?")
+print("1 - Sim")
+print("2 - Não")
+escolha = int(input("Digite 1 ou 2: "))
+if escolha == 1:
+    terminal_consult()
+else:
+    print("Como dizia minha ex: terminamos!")
