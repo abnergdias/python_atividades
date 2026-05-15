@@ -1,0 +1,75 @@
+def som():
+    num1 = float(input("Digite o primeiro numero: "))
+    num2 = float(input("Digite o segundo numero: "))
+
+    soma = num1 + num2
+
+    print(f"O resultado da soma entre {num1} e {num2} é {soma}")
+
+def sub():
+    num1 = float(input("Digite o primeiro numero: "))
+    num2 = float(input("Digite o segundo numero: "))
+
+    subi = num1 - num2 
+
+    print(f"{num1} - {num2} = {subi}")
+
+def mult():
+    num1 = float(input("Digite o primeiro numero: "))
+    num2 = float(input("Digite o segundo numero: "))
+
+    multi = num1 * num2
+
+    print(f"O resultado da multiplicação é {multi}")
+
+def div():
+    num1 = float(input("Digite o primeiro numero: "))
+    num2 = float(input("Digite o segundo numero: "))
+
+    divi = num1 / num2
+
+    if num1 == 0 or num2 == 0:
+        print("Erro divisão pro 0, digite novamente!")
+        div()
+
+    else:
+        print(f"O resultado da divisão é {divi}")
+
+def tabuada():
+    num1 = float(input("Digite o numero que você saber a tabuada: "))
+
+    for i in range(1,11):
+        multip = num1 * i
+
+        print(multip)
+
+def menu():
+    while True:
+        print("===================")
+        print("====Calculadora====")
+        print("===================")
+        print("1 - Soma")
+        print("2 - Subtração")
+        print("3 - Multiplicação")
+        print("4 - Divisão")
+        print("5 - Tabuada")
+        print("6 - Sair")
+
+        opcao = int(input("Escolha uma opção: "))
+
+        match opcao:
+            case 1:
+                som()
+            case 2:
+                sub()
+            case 3:
+                mult()
+            case 4:
+                div()
+            case 5:
+                tabuada()
+            case 6:
+                print("Saindo...")
+                break
+
+menu()
