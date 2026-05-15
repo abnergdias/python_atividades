@@ -26,7 +26,7 @@ def div():
     num1 = float(input("Digite o primeiro numero: "))
     num2 = float(input("Digite o segundo numero: "))
 
-    While num2 == 0:
+    while num2 == 0:
         print("Erro divisão pro 0, digite novamente!")
         num1 = float(input("Digite o primeiro numero: "))
         num2 = float(input("Digite o segundo numero: "))
